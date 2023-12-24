@@ -49,6 +49,7 @@ section {
     flex-wrap: wrap; /* 当行内空间不足时，换行排列 */
     justify-content: space-around; /* 卡片间的空间均匀分布 */
     align-items: flex-start; /* 卡片顶部对齐 */
+    margin-top: 20px;
     padding: 10px; /* 根据需要添加内边距 */
 }
 
@@ -64,6 +65,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh; /* 视口高度 */
 }
 

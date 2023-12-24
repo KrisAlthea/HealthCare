@@ -1,0 +1,35 @@
+/* personal.css */
+.personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profile {
+    flex-basis: 30%; /* 调整为所需的比例 */
+    text-align: center;
+}
+
+.profile img {
+    width: 150px; /* 根据需要调整尺寸 */
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.health-records, .health-goals, .personal-achievements, .health-tips, .preferences {
+    flex-basis: 45%; /* 调整为所需的比例 */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* 背景色 */
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 可能需要的其他样式 */

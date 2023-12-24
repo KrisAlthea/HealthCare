@@ -1,0 +1,15 @@
+/* family.css */
+.family-overview, .family-health-records, .family-activities, .family-calendar, .health-resources, .family-interaction {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* 定制化的家庭页面样式，如特定的布局、颜色方案或组件样式 */
