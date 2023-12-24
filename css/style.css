@@ -1,0 +1,109 @@
+nav {
+    display: flex;
+    justify-content: center; /* 确保内容居中 */
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 0;
+}
+
+nav .logo {
+    position: absolute; /* 设置logo为绝对定位 */
+    left: 20px; /* 距离左边的距离 */
+    font-size: 24px;
+    color: white;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    transition: background-color 0.4s ease;
+    display: block;
+    border-radius: 10px;
+}
+
+nav ul li a.active, nav ul li a:hover {
+    background-color: white;
+    color: #007bff;
+    border-radius: 10px;
+}
+
+/* 其余样式保持不变 */
+
+
+section {
+    display: flex;
+    flex-wrap: wrap; /* 当行内空间不足时，换行排列 */
+    justify-content: space-around; /* 卡片间的空间均匀分布 */
+    align-items: flex-start; /* 卡片顶部对齐 */
+    padding: 10px; /* 根据需要添加内边距 */
+}
+
+
+/* 其余样式保持不变 */
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 视口高度 */
+}
+
+.content {
+    flex: 1; /* 使内容区域灵活填充空间 */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    border: 2px solid #007bff; /* 边框悬浮时颜色 */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* 阴影效果 */
+}
+
+.card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
