@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CareU - 登录</title>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
 <div class="login-container">
@@ -80,12 +80,43 @@
         }
     });
 
-    // 模拟登录验证函数
-    async function validateLogin(username, password) {
-        // 这里应该替换为您的实际登录逻辑，可能涉及发送请求到服务器
-        // 下面是一个简单的示例
-        return username === 'username' && password === 'password'; // 替换为您的验证逻辑
-    }
+    // 实现了简单的注册以及登录跳转，具体细节 TODO
+    document.getElementById('form').addEventListener('submit', async function(event) {
+        event.preventDefault(); // 阻止表单默认提交行为
+
+        const isLogin = document.getElementById('login-btn').classList.contains('active');
+        const url = isLogin ? 'http://localhost:8080/api/user/login' : 'http://localhost:8080/api/user/register';
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        if (!isLogin) {
+            data.checkPassword = formData.get('confirmPassword'); // 为注册操作添加确认密码
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                if (isLogin) {
+                    alert('登录成功');
+                    window.location.href = 'index.html'; // 替换为您的首页URL
+                } else {
+                    alert('注册成功，用户ID: ' + responseData);
+                }
+            } else {
+                alert('请求失败: ' + response.status);
+            }
+        } catch (error) {
+            console.error('请求错误', error);
+        }
+    });
 
 </script>
 </body>
