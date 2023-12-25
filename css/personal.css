@@ -32,4 +32,22 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* 可能需要的其他样式 */
+/* 退出登录按钮样式 */
+.logout-button {
+    padding: 10px 20px;
+    background-color: #f44336; /* 红色背景 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; /* 深红色背景 */
+}
+

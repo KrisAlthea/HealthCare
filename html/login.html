@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>CareU - 登录</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="logo">CareU</div>
+
+    <div class="card">
+        <!-- 切换按钮 -->
+        <div class="switch-container">
+            <button class="switch-button active" id="login-btn">登录</button>
+            <button class="switch-button" id="register-btn">注册</button>
+        </div>
+
+        <!-- 表单 -->
+        <form class="form" action="/login" method="post" id="form">
+            <!-- 输入框 -->
+            <label>
+                <input type="text" class="input-field" name="username" placeholder="用户名" required>
+            </label>
+            <label>
+                <input type="password" class="input-field" name="password" placeholder="密码" required>
+            </label>
+            <!-- 动态添加的确认密码输入框将放在这里 -->
+            <div id="confirm-password-container"></div>
+            <button type="submit" class="submit-button">登录</button>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    document.getElementById('register-btn').addEventListener('click', function() {
+        // 动态添加确认密码输入框
+        var confirmPasswordContainer = document.getElementById('confirm-password-container');
+        confirmPasswordContainer.innerHTML = '<input type="password" class="input-field" name="confirmPassword" placeholder="确认密码" required>';
+
+        // 更新按钮高亮状态
+        this.classList.add('active');
+        document.getElementById('login-btn').classList.remove('active');
+
+        // 更改提交按钮文字为"注册"，并调整表单action属性
+        document.querySelector('.submit-button').innerText = '注册';
+        document.getElementById('form').action = '/register';
+    });
+
+    document.getElementById('login-btn').addEventListener('click', function() {
+        // 移除确认密码输入框
+        var confirmPasswordContainer = document.getElementById('confirm-password-container');
+        confirmPasswordContainer.innerHTML = '';
+
+        // 更新按钮高亮状态
+        this.classList.add('active');
+        document.getElementById('register-btn').classList.remove('active');
+
+        // 更改提交按钮文字为"登录"，并调整表单action属性
+        document.querySelector('.submit-button').innerText = '登录';
+        document.getElementById('form').action = '/login';
+    });
+
+    document.getElementById('form').addEventListener('submit', async function(event) {
+        event.preventDefault(); // 阻止表单默认提交行为
+
+        // 获取用户输入
+        const username = document.querySelector('[name="username"]').value;
+        const password = document.querySelector('[name="password"]').value;
+
+        // 登录验证
+        const loginSuccess = await validateLogin(username, password);
+
+        // 登录成功
+        if (loginSuccess) {
+            window.location.href = 'index.html'; // 替换为您的首页URL
+        } else {
+            alert('登录失败，请检查您的用户名和密码！');
+        }
+    });
+
+    // 模拟登录验证函数
+    async function validateLogin(username, password) {
+        // 这里应该替换为您的实际登录逻辑，可能涉及发送请求到服务器
+        // 下面是一个简单的示例
+        return username === 'username' && password === 'password'; // 替换为您的验证逻辑
+    }
+
+</script>
+</body>
+</html>
