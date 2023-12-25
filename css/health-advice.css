@@ -1,0 +1,81 @@
+/* 健康建议页面的特定样式 */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+/* 单独板块样式 */
+.articles, .q-and-a, .tips {
+    flex: 1;
+    display: flex; /* 启用flex布局 */
+    flex-direction: column; /* 垂直方向排列 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin: 0 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 板块标题样式 */
+.articles h2, .q-and-a h2, .tips h2 {
+    margin-bottom: 15px; /* 标题与内容之间的间距 */
+}
+
+/* 文章板块的额外样式 */
+.articles {
+    margin-left: 0; /* 第一个板块左边没有间距 */
+}
+
+/* 小贴士板块的额外样式 */
+.tips {
+    margin-right: 0; /* 最后一个板块右边没有间距 */
+}
+/* 文章板块特定样式 */
+.article {
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, border 0.3s ease;
+    border: 1px solid transparent; /* 初始边框透明 */
+    border-radius: 4px; /* 初始圆角 */
+}
+
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee; /* 悬浮时显示边框 */
+    border-radius: 8px; /* 悬浮时增加圆角 */
+}
+
+.article h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+/* 问答互动和小贴士板块浮动效果 */
+.qa, .tips p {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, border 0.3s ease;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.qa:hover, .tips p:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .articles, .q-and-a, .tips {
+        margin: 10px 0;
+    }
+}
