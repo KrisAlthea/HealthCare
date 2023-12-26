@@ -57,6 +57,7 @@ document.getElementById('form').addEventListener('submit', async function(event)
                 window.location.href = 'index.html'; // 跳转到首页
             } else {
                 alert('注册成功，用户ID: ' + responseData);
+                document.getElementById('login-btn').click();   // 注册成功后自动切换到登录页面
             }
         } else {
             alert('请求失败: ' + response.status);
