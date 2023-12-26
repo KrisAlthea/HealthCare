@@ -33,91 +33,13 @@
     </div>
 </div>
 
-<script>
-    document.getElementById('register-btn').addEventListener('click', function() {
-        // 动态添加确认密码输入框
-        var confirmPasswordContainer = document.getElementById('confirm-password-container');
-        confirmPasswordContainer.innerHTML = '<input type="password" class="input-field" name="confirmPassword" placeholder="确认密码" required>';
-
-        // 更新按钮高亮状态
-        this.classList.add('active');
-        document.getElementById('login-btn').classList.remove('active');
-
-        // 更改提交按钮文字为"注册"，并调整表单action属性
-        document.querySelector('.submit-button').innerText = '注册';
-        document.getElementById('form').action = '/register';
-    });
-
-    document.getElementById('login-btn').addEventListener('click', function() {
-        // 移除确认密码输入框
-        var confirmPasswordContainer = document.getElementById('confirm-password-container');
-        confirmPasswordContainer.innerHTML = '';
-
-        // 更新按钮高亮状态
-        this.classList.add('active');
-        document.getElementById('register-btn').classList.remove('active');
-
-        // 更改提交按钮文字为"登录"，并调整表单action属性
-        document.querySelector('.submit-button').innerText = '登录';
-        document.getElementById('form').action = '/login';
-    });
-
-    document.getElementById('form').addEventListener('submit', async function(event) {
-        event.preventDefault(); // 阻止表单默认提交行为
-
-        // 获取用户输入
-        const username = document.querySelector('[name="username"]').value;
-        const password = document.querySelector('[name="password"]').value;
-
-        // 登录验证
-        const loginSuccess = await validateLogin(username, password);
-
-        // 登录成功
-        if (loginSuccess) {
-            window.location.href = 'index.html'; // 替换为您的首页URL
-        } else {
-            alert('登录失败，请检查您的用户名和密码！');
-        }
-    });
-
-    // 实现了简单的注册以及登录跳转，具体细节 TODO
-    document.getElementById('form').addEventListener('submit', async function(event) {
-        event.preventDefault(); // 阻止表单默认提交行为
-
-        const isLogin = document.getElementById('login-btn').classList.contains('active');
-        const url = isLogin ? 'http://localhost:8080/api/user/login' : 'http://localhost:8080/api/user/register';
-
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
-        if (!isLogin) {
-            data.checkPassword = formData.get('confirmPassword'); // 为注册操作添加确认密码
-        }
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                const responseData = await response.json();
-                if (isLogin) {
-                    alert('登录成功');
-                    window.location.href = 'index.html'; // 替换为您的首页URL
-                } else {
-                    alert('注册成功，用户ID: ' + responseData);
-                }
-            } else {
-                alert('请求失败: ' + response.status);
-            }
-        } catch (error) {
-            console.error('请求错误', error);
-        }
-    });
-
-</script>
+<!-- 引入脚本
+     我这里把原本写在这里的 script 脚本都复制粘贴到 login.js 文件里了，
+     所以这里只需要引入 login.js 文件就可以了，
+     这样做的原因是，我 config.js 里面定义的常量可能在很多文件里也要使用，
+     但是直接把 config.js 文件引入到 html 里之后，<script>标签里面的代码好像都失效了，
+     所以以后还是把脚本写在单独的 js 文件里，然后再引入到 html 里面，不然容易出bug
+ -->
+<script type="module" src="../js/login.js"></script>
 </body>
 </html>
