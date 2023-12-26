@@ -19,30 +19,53 @@
         </nav>
     </header>
 
-    <section class="personal-info">
-        <div class="profile">
-            <img src="/avatar.png" alt="个人头像">
-            <h2>张三</h2>
-            <p>年龄: 20岁</p>
-            <p>性别: 男</p>
-            <a href="login.html" class="logout-button">退出登录</a>
-
+    <section class="main-section">
+        <!-- 左侧个人信息 -->
+        <div class="left-column">
+            <div class="profile">
+                <img src="../res/avatar.png" alt="个人头像">
+                <h2>用户名</h2>
+                <p class="signature">🔖早睡早起</p>
+                <a href="login.html" class="logout-button">退出登录</a>
+            </div>
         </div>
 
+        <!-- 右侧成就和健康记录 -->
+        <div class="right-column">
+            <div class="personal-achievements">
+                <h2>个人成就🏆</h2>
+                <div class="achievements-container">
+                    <div class="trophy" data-tooltip="坚持早起一周">
+                        <img src="../res/alarm.png" alt="Trophy" />
+                    </div>
+                    <div class="trophy" data-tooltip="周步数达到5万步">
+                        <img src="../res/steps.png" alt="Trophy" />
+                    </div>
+                    <div class="trophy" data-tooltip="步数排名第二">
+                        <img src="../res/silver.png" alt="Trophy" />
+                    </div>
+                    <div class="trophy" data-tooltip="坚持早睡一周">
+                        <img src="../res/bed.png" alt="Trophy" />
+                    </div>
+                    <div class="trophy" data-tooltip="运动时长第一">
+                        <img src="../res/trophy1.png" alt="Trophy" />
+                    </div>
+                    <div class="trophy" data-tooltip="连续达成目标一周">
+                        <img src="../res/trophy3.png" alt="Trophy" />
+                    </div>
+                </div>
+            </div>
 
-        <div class="health-records">
-            <h2>健康记录</h2>
-            <!-- 健康数据图表等 -->
-        </div>
-
-        <div class="personal-achievements">
-            <h2>个人成就</h2>
-            <!-- 成就展示 -->
-        </div>
-
-        <div class="preferences">
-            <h2>个人偏好设置</h2>
-            <!-- 设置选项 -->
+            <div class="health-records">
+                <h2>健康记录✍️</h2>
+                <ul>
+                    <li>瑜伽课程帮助缓解压力 <span class="date-align">-- 12月22号周四</span></li>
+                    <li>每天早上跑步，已坚持一周 <span class="date-align">-- 12月20号周二</span></li>
+                    <li>每日水果摄入量保持良好 <span class="date-align">-- 12月18号周日</span></li>
+                    <li>睡眠质量逐渐改善 <span class="date-align">-- 12月17号周六</span></li>
+                    <li>最近一次健康检查指标正常 <span class="date-align">-- 12月15号周四</span></li>
+                </ul>
+            </div>
         </div>
     </section>
 </div>
@@ -50,5 +73,6 @@
 <footer>
     <p>版权所有 © 2023 CareU</p>
 </footer>
+<script src="../js/personal.js"></script>
 </body>
 </html>

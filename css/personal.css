@@ -1,31 +1,76 @@
-/* personal.css */
-.personal-info {
+/* personal.css 更新后的内容 */
+/* 主要布局和样式 */
+.main-section {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+}
+
+.left-column {
+    width: 30%;
+}
+
+.right-column {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile {
-    flex-basis: 30%; /* 调整为所需的比例 */
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .profile img {
-    width: 150px; /* 根据需要调整尺寸 */
+    width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
 
-.health-records, .personal-achievements, .preferences {
-    flex-basis: 45%; /* 调整为所需的比例 */
+.personal-achievements, .health-records {
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color: #f9f9f9;
     margin-bottom: 20px;
-    background-color: #f9f9f9; /* 背景色 */
 }
+
+/* 奖杯样式 */
+.achievements-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trophy {
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trophy img {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+.trophy:hover {
+    transform: scale(1.2); /* 放大效果 */
+    box-shadow: 0 4px 8px rgba(100, 100, 255, 0.6);
+}
+
+.tooltip {
+    background-color: #fff; /* 可以根据您的页面设计调整颜色 */
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 奖杯阴影样式 */
+    position: absolute;
+    z-index: 1000; /* 确保在其他元素之上显示 */
+    /* 其他样式，如字体大小、颜色等 */
+}
+
 
 h2 {
     color: #333;
@@ -35,19 +80,69 @@ h2 {
 /* 退出登录按钮样式 */
 .logout-button {
     padding: 10px 20px;
-    background-color: #f44336; /* 红色背景 */
-    color: white;
+    background-color: #f44336; /* 恢复红色背景 */
+    color: white; /* 保留白色文字 */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    text-align: center;
     display: inline-block;
     margin: 10px 0;
     text-decoration: none;
+    transition: background-color 0.3s; /* 保持平滑背景色变化 */
 }
 
 .logout-button:hover {
-    background-color: #d32f2f; /* 深红色背景 */
+    background-color: #d32f2f; /* 悬浮时的深红色背景 */
 }
 
+
+.signature {
+    font-style: italic; /* 斜体字体 */
+    color: #555; /* 签名的颜色 */
+}
+
+
+/* 健康记录部分 */
+.health-records {
+    background-color: #f0f8ff; /* 淡蓝色背景，给人一种清新的感觉 */
+    color: #333; /* 使文字颜色深一些，以增强可读性 */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* 轻微的圆角 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 轻微的阴影效果 */
+}
+
+.health-records h2 {
+    border-bottom: 2px solid #4caf50; /* 标题下方的绿色边框 */
+    color: #2c3e50; /* 标题颜色 */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.health-records ul {
+    list-style: none; /* 移除默认的列表样式 */
+    padding: 0;
+}
+
+.health-records li {
+    background-color: #ffffff; /* 每个记录项的背景色 */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px; /* 圆角 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* 每个记录项的阴影 */
+    position: relative;
+}
+
+.date-align {
+    float: right; /* 日期向右对齐 */
+    color: #666; /* 日期的文字颜色 */
+    font-size: 0.9em; /* 略微减小日期的字体大小 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .right-column {
+        width: 100%;
+    }
+}

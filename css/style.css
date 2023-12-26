@@ -104,10 +104,40 @@ footer {
     font-size: 14px;
 }
 
+/* 我的健康目标和家庭健康动态的共通样式 */
 #family-health-updates, #health-goals {
-    width: 400px; /* 设置板块的宽度 */
+    background-color: #f0f8ff; /* 与健康记录部分的背景色一致 */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    width:450px;
 }
+
+#family-health-updates h2, #health-goals h2 {
+    border-bottom: 2px solid #4caf50; /* 标题下的绿色边框 */
+    color: #2c3e50; /* 标题颜色 */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+#family-health-updates ul, #health-goals ul {
+    list-style: none; /* 移除默认列表样式 */
+    padding: 0;
+}
+
+#family-health-updates li, #health-goals li {
+    background-color: #ffffff; /* 列表项背景色 */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px; /* 圆角样式 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+    position: relative;
+}
+
 .date-align {
-    float: right; /* 使日期右对齐 */
-    margin-left: 10px; /* 添加一些左侧空间以分隔日期和文字 */
+    float: right; /* 日期向右对齐 */
+    color: #666; /* 日期文字颜色 */
+    font-size: 0.9em; /* 日期字体大小 */
 }

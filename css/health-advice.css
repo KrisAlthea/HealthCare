@@ -66,6 +66,13 @@
     padding: 10px;
 }
 
+.qa-prefix {
+    color: #007bff; /* 可以选择您喜欢的颜色 */
+    margin-right: 8px; /* 添加间隔 */
+    font-weight: bold; /* 如果需要，可以加粗 */
+}
+
+
 .qa:hover, .tips p:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
