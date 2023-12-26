@@ -21,6 +21,7 @@
 /* 板块标题样式 */
 .articles h2, .q-and-a h2, .tips h2 {
     margin-bottom: 15px; /* 标题与内容之间的间距 */
+    text-align: center;
 }
 
 /* 文章板块的额外样式 */
@@ -46,6 +47,10 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border: 1px solid #eee; /* 悬浮时显示边框 */
     border-radius: 8px; /* 悬浮时增加圆角 */
+}
+
+.article:hover h3 a {
+    color: #007bff; /* 悬浮时标题颜色 */
 }
 
 .article h3 a {

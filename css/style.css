@@ -1,4 +1,4 @@
-
+/**style.css**/
 nav {
     display: flex;
     justify-content: center; /* 确保内容居中 */
@@ -42,9 +42,6 @@ nav ul li a.active, nav ul li a:hover {
     border-radius: 10px;
 }
 
-/* 其余样式保持不变 */
-
-
 section {
     display: flex;
     flex-wrap: wrap; /* 当行内空间不足时，换行排列 */
@@ -53,10 +50,6 @@ section {
     margin-top: 20px;
     padding: 10px; /* 根据需要添加内边距 */
 }
-
-
-/* 其余样式保持不变 */
-
 
 html, body {
     height: 100%;
@@ -109,4 +102,12 @@ footer {
 .card ul li {
     margin-bottom: 8px;
     font-size: 14px;
+}
+
+#family-health-updates, #health-goals {
+    width: 400px; /* 设置板块的宽度 */
+}
+.date-align {
+    float: right; /* 使日期右对齐 */
+    margin-left: 10px; /* 添加一些左侧空间以分隔日期和文字 */
 }

@@ -18,7 +18,7 @@
     margin-bottom: 10px;
 }
 
-.health-records, .health-goals, .personal-achievements, .health-tips, .preferences {
+.health-records, .personal-achievements, .preferences {
     flex-basis: 45%; /* 调整为所需的比例 */
     padding: 15px;
     border: 1px solid #ddd;
