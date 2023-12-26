@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CareU - 登录</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <div class="login-container">
@@ -33,13 +33,7 @@
     </div>
 </div>
 
-<!-- 引入脚本
-     我这里把原本写在这里的 script 脚本都复制粘贴到 login.js 文件里了，
-     所以这里只需要引入 login.js 文件就可以了，
-     这样做的原因是，我 config.js 里面定义的常量可能在很多文件里也要使用，
-     但是直接把 config.js 文件引入到 html 里之后，<script>标签里面的代码好像都失效了，
-     所以以后还是把脚本写在单独的 js 文件里，然后再引入到 html 里面，不然容易出bug
- -->
-<script type="module" src="../js/login.js"></script>
+<script type="module" src="js/app.js"></script>
+<script type="module" src="js/login.js"></script>
 </body>
 </html>

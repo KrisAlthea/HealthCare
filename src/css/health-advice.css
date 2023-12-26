@@ -4,24 +4,29 @@
     justify-content: space-between;
     margin: 20px auto;
     max-width: 1200px;
+    align-items: flex-start; /* 从顶部开始对齐 */
 }
 
 /* 单独板块样式 */
 .articles, .q-and-a, .tips {
-    flex: 1;
-    display: flex; /* 启用flex布局 */
-    flex-direction: column; /* 垂直方向排列 */
+    flex: 0 0 calc(30% - 20px); /* 不伸缩，基础宽度为容器宽度的三分之一减去间距 */
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
     margin: 0 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden; /* 隐藏溢出内容 */
+    max-width: 100%;
 }
+
 
 /* 板块标题样式 */
 .articles h2, .q-and-a h2, .tips h2 {
     margin-bottom: 15px; /* 标题与内容之间的间距 */
     text-align: center;
+    white-space: nowrap; /* 防止文本换行 */
 }
 
 /* 文章板块的额外样式 */
@@ -33,6 +38,7 @@
 .tips {
     margin-right: 0; /* 最后一个板块右边没有间距 */
 }
+
 /* 文章板块特定样式 */
 .article {
     padding: 10px;
@@ -40,6 +46,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, border 0.3s ease;
     border: 1px solid transparent; /* 初始边框透明 */
     border-radius: 4px; /* 初始圆角 */
+    width: 95%;
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 使用省略号表示溢出的文本 */
 }
 
 .article:hover {
@@ -56,6 +65,20 @@
 .article h3 a {
     color: #333;
     text-decoration: none;
+    display: block; /* 使<a>标签成为块级元素 */
+    white-space: nowrap; /* 防止折行 */
+    overflow: hidden; /* 隐藏溢出的文本 */
+    text-overflow: ellipsis; /* 在溢出的地方显示省略号 */
+    max-width: 100%; /* 限制最大宽度 */
+}
+
+.article p {
+    word-wrap: break-word; /* 允许在单词内折行 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* 限制为3行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* 问答互动和小贴士板块浮动效果 */
@@ -66,12 +89,15 @@
     padding: 10px;
 }
 
+.qa {
+    margin-bottom: 12px;
+}
+
 .qa-prefix {
     color: #007bff; /* 可以选择您喜欢的颜色 */
     margin-right: 8px; /* 添加间隔 */
     font-weight: bold; /* 如果需要，可以加粗 */
 }
-
 
 .qa:hover, .tips p:hover {
     transform: translateY(-5px);
@@ -81,13 +107,13 @@
 }
 
 /* 响应式设计 */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
-        margin: 10px;
     }
 
     .articles, .q-and-a, .tips {
-        margin: 10px 0;
+        flex: 0 0 auto; /* 在小屏幕上自动调整大小 */
+        margin: 10px 0; /* 调整间距 */
     }
 }

@@ -3,8 +3,10 @@ const config = {
     timeout: 5000,
     loginEndpoint: '/user/login',
     registerEndpoint: '/user/register',
+    loginStateEndpoint: '/user/loginstate',
+    logoutEndpoint: '/user/logout',
     fetchUserInfoEndpoint: '/user/current',
-    adviceEndpoint: '/advice',
+    adviceEndpoint: '/advice/get',
 
     /*
      在外部文件中调用示例：
@@ -16,6 +18,12 @@ const config = {
     },
     get registerUrl() {
         return `${this.apiUrl}${this.registerEndpoint}`;
+    },
+    get loginStateUrl() {
+        return `${this.apiUrl}${this.loginStateEndpoint}`;
+    },
+    get logoutUrl() {
+        return `${this.apiUrl}${this.logoutEndpoint}`;
     },
     get fetchUserInfoUrl() {
         return `${this.apiUrl}${this.fetchUserInfoEndpoint}`;
