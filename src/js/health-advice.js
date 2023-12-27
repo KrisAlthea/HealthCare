@@ -16,8 +16,8 @@ async function displayHealthAdvice() {
         const articlesContent = document.getElementById('articles-content');
         articlesContent.innerHTML = healthAdvice.articles.map(article => `
             <div class="article">
-                <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-                <p>📙${article.outline}</p>
+                <h3><a href="${article.url}" target="_blank">📙${article.title}</a></h3>
+                <p>${article.outline}</p>
             </div>
         `).join('');
 

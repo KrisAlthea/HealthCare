@@ -7,9 +7,9 @@ async function displayUserData() {
         document.getElementById('basic-info').innerHTML = `
             <h2>基本信息</h2>
             <ul>
-                <li>👣步数: ${userData.steps}</li>
-                <li>🔥卡路里: ${userData.calories}</li>
-                <li>🕘运动时间: ${userData.exerciseTime}分钟</li>
+                <li>👣步数: ${userData.steps} 步</li>
+                <li>🔥卡路里: ${userData.calories} kcal</li>
+                <li>🕘运动时间: ${userData.exerciseTime} 分钟</li>
             </ul>
         `;
 
@@ -19,7 +19,7 @@ async function displayUserData() {
         document.getElementById('sleep-info').innerHTML = `
             <h2>睡眠</h2>
             <ul>
-                <li>⏲️时长: ${userData.sleepDuration}分钟</li>
+                <li>⏲️时长: ${userData.sleepDuration} 分钟</li>
                 <li>💤入睡时间: ${sleepStartFormatted}</li>
                 <li>⏰醒来时间: ${sleepEndFormatted}</li>
             </ul>
@@ -42,8 +42,7 @@ function formatTime(timeString) {
     const time = new Date(timeString);
     let hours = time.getHours().toString().padStart(2, '0');
     let minutes = time.getMinutes().toString().padStart(2, '0');
-    let seconds = time.getSeconds().toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds}`;
+    return `${hours}:${minutes}`;
 }
 
 // 执行函数
