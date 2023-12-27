@@ -3,22 +3,13 @@
 // ===============================================
 
 import config from './config.js';
+import {request} from "./main.js";
 
 // 检查用户是否登录
 async function checkUserLoggedIn() {
-    try {
-        const response = await fetch(config.loginStateUrl, {
-            credentials: 'include'
-        });
-        if (!response.ok) {
-            throw new Error('网络请求失败');
-        }
-        const isLoggedIn = await response.json();
-        return isLoggedIn;
-    } catch (error) {
-        console.error('检查登录状态出错:', error);
-        return false;
-    }
+    return request(config.loginStateUrl, {
+        method: 'GET'
+    });
 }
 
 // 在页面加载时检查用户是否登录

@@ -1,5 +1,5 @@
-import config from "./config";
-import {fetchUserInfo} from "./main";
+import config from "./config.js";
+import {fetchUserInfo, request} from "./main.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     const trophies = document.querySelectorAll('.trophy');
@@ -35,31 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutButton = document.querySelector('.logout-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', async function() {
-            try {
-                const response = await fetch(config.logoutUrl, {
-                    method: 'POST',
-                    headers: {
-                        // 如果需要，添加适当的头部，如认证令牌
-                    }
-                });
+            const result = await request(config.logoutUrl, {
+                method: 'POST'
+            });
 
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result === 0) {
-                        alert('注销成功');
-                        window.location.href = 'login.html'; // 注销后重定向到登录页面
-                    } else {
-                        alert('注销失败');
-                    }
-                } else {
-                    alert('请求失败: ' + response.status);
-                }
-            } catch (error) {
-                console.error('注销请求错误', error);
+            if (result === 0) {
+                alert('注销成功');
+                window.location.href = 'login.html'; // 注销后重定向到登录页面
+            } else {
+                alert('注销失败');
             }
         });
     }
 });
+
 
 // 更新用户名和头像
 async function updateUserInfo() {

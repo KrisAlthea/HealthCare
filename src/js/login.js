@@ -1,4 +1,5 @@
 import config from './config.js';
+import {request} from "./main.js";
 
 document.getElementById('register-btn').addEventListener('click', function() {
     // 动态添加确认密码输入框
@@ -28,41 +29,59 @@ document.getElementById('login-btn').addEventListener('click', function() {
     document.getElementById('form').action = '/login';
 });
 
-// 实现了简单的注册以及登录跳转，具体细节 TODO
+// 处理登录/注册表单提交
 document.getElementById('form').addEventListener('submit', async function(event) {
     event.preventDefault(); // 阻止表单默认提交行为
 
     const isLogin = document.getElementById('login-btn').classList.contains('active');
-    const url = isLogin ? config.loginUrl : config.registerUrl
+    const url = isLogin ? config.loginUrl : config.registerUrl;
 
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
+
     if (!isLogin) {
-        data.checkPassword = formData.get('confirmPassword'); // 为注册操作添加确认密码
+        const password = formData.get('password');
+        const confirmPassword = formData.get('confirmPassword');
+
+        // 检查确认密码是否一致
+        if (password !== confirmPassword) {
+            alert('两次输入的密码不一致！');
+            return;
+        }
+
+        data.checkPassword = confirmPassword; // 为注册操作添加确认密码
     }
-    // 以 JSON 格式获取后端响应
+
     try {
-        const response = await fetch(url, {
+        const responseData = await request(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         });
-        // 如果获取到响应 200(ok)，表示请求成功
-        if (response.ok) {
-            const responseData = await response.json();
-            if (isLogin) {
+
+        if (isLogin) {
+            // 登录操作
+            if (responseData) {
                 alert('登录成功');
                 window.location.href = 'index.html'; // 跳转到首页
             } else {
-                alert('注册成功，用户ID: ' + responseData);
-                document.getElementById('login-btn').click();   // 注册成功后自动切换到登录页面
+                alert('登录失败');
             }
         } else {
-            alert('请求失败: ' + response.status);
+            // 注册操作
+            if (responseData === -1) {
+                // 注册失败
+                alert('注册失败，用户名不能重复或有特殊字符！');
+            } else {
+                // 注册成功
+                alert('注册成功，用户ID：' + responseData);
+                document.getElementById('login-btn').click(); // 注册成功后自动切换到登录页面
+            }
         }
     } catch (error) {
         console.error('请求错误', error);
+        alert(isLogin ? '登录请求错误' : '注册请求错误');
     }
 });
