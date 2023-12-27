@@ -47,6 +47,37 @@ nav ul li a.active, nav ul li a:hover {
     border-radius: 10px;
 }
 
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* 根据您的页面调整这个高度 */
+}
+
+.dot {
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #3498db; /* 您可以选择任何您喜欢的颜色 */
+    border-radius: 50%;
+    animation: jump 1.0s ease-in-out infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+
 section {
     display: flex;
     flex-wrap: wrap; /* 当行内空间不足时，换行排列 */
@@ -78,6 +109,10 @@ footer {
     text-align: center;
     padding: 10px 0;
 }
+/* 隐藏所有卡片，直到数据加载完成 */
+#basic-info, #sleep-info, #other-info, #health-goals, #family-health-updates {
+    display: none;
+}
 
 .card {
     width: 300px;
@@ -85,12 +120,16 @@ footer {
     margin: 10px;
     border-radius: 10px;
     border: 2px solid #ddd;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    backdrop-filter: blur(10px); /* 模糊效果 */
+    -webkit-backdrop-filter: blur(10px); /* 针对旧版 Safari 浏览器 */
+    transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
     border: 2px solid #007bff; /* 边框悬浮时颜色 */
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* 阴影效果 */
+    background-color: rgba(255, 255, 255, 0.9); /* 悬浮时背景更少透明 */
 }
 
 .card h2 {

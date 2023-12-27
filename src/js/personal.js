@@ -71,3 +71,48 @@ async function updateUserInfo() {
 updateUserInfo();
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const updateHealthDataButton = document.querySelector('.update-health-data-button');
+    const updateHealthDataForm = document.querySelector('.update-health-data-form');
+    const cancelButton = document.querySelector('.cancel-button');
+    const form = document.getElementById('health-data-form');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    // 显示或隐藏更新健康数据的表单
+    updateHealthDataButton.addEventListener('click', function() {
+        updateHealthDataForm.style.display = 'block';
+    });
+
+    // 隐藏表单
+    cancelButton.addEventListener('click', function() {
+        updateHealthDataForm.style.display = 'none';
+    });
+
+    // // 表单输入事件处理，检查至少一个字段是否已填写
+    // form.addEventListener('input', function() {
+    //     let isAnyFieldFilled = Array.from(form.querySelectorAll('input')).some(input => input.value.trim() !== '');
+    //     submitButton.disabled = !isAnyFieldFilled;
+    // });
+
+    // 表单提交事件处理
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // 收集表单数据
+        const data = {
+            steps: form.steps.value,
+            calories: form.calories.value,
+            activityTime: form.activityTime.value,
+            sleepDuration: form.sleepDuration.value,
+            sleepTime: form.sleepTime.value,
+            wakeTime: form.wakeTime.value,
+            heartRate: form.heartRate.value,
+            bloodPressure: form.bloodPressure.value,
+            bloodOxygen: form.bloodOxygen.value
+        };
+
+        console.log('提交的健康数据:', data);
+        alert('健康数据已提交');
+        // 这里可以添加发送数据到服务器的代码
+        updateHealthDataForm.style.display = 'none';
+    });
+});

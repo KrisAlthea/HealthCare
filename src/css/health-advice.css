@@ -18,9 +18,16 @@
     margin: 0 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden; /* 隐藏溢出内容 */
-    max-width: 100%;
+    /*max-width: 100%;*/
 }
 
+/* 加载动画样式 */
+.loading-animation {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #007bff;
+}
 
 /* 板块标题样式 */
 .articles h2, .q-and-a h2, .tips h2 {

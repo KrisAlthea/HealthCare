@@ -10,7 +10,11 @@ async function fetchHealthAdvice() {
 
 // 显示健康建议
 async function displayHealthAdvice() {
+    // 显示加载动画
+    document.querySelectorAll('.loading-animation').forEach(el => el.style.display = 'block');
+
     const healthAdvice = await fetchHealthAdvice();
+
     if (healthAdvice) {
         // 更新文章
         const articlesContent = document.getElementById('articles-content');
@@ -35,8 +39,13 @@ async function displayHealthAdvice() {
         tipsContent.innerHTML = healthAdvice.tips.map(tip => `
             <p>✅${tip.content}</p>
         `).join('');
+
+        // 隐藏加载动画
+        document.querySelectorAll('.loading-animation').forEach(el => el.style.display = 'none');
+    } else {
+        // 如果没有获取到健康建议，可以在这里处理错误或显示一个消息
+        document.querySelectorAll('.loading-animation').forEach(el => el.textContent = '加载失败');
     }
 }
 
 displayHealthAdvice();
-
