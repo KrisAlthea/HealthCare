@@ -68,15 +68,22 @@ function hideLoadingAnimation() {
 
 // 获取基本信息的HTML
 function getBasicInfoHTML(userData) {
+    // 计算每个目标的完成百分比
+    const stepsPercentage = Math.min((userData.steps / 10000) * 100, 100);
+    const caloriesPercentage = Math.min((userData.calories / 600) * 100, 100);
+    const exerciseTimePercentage = Math.min((userData.exerciseTime / 90) * 100, 100);
+
     return `
         <h2>基本信息</h2>
         <ul>
-            <li>👣步数: ${userData.steps} 步</li>
-            <li>🔥卡路里: ${userData.calories} kcal</li>
-            <li>🕘运动时间: ${userData.exerciseTime} 分钟</li>
+            <li><span class="title">👣 步数:</span><div class="progress-container step-progress"><div class="progress-bar" style="width: ${stepsPercentage}%;">${userData.steps}</div></div></li>
+            <li><span class="title">🔥 卡路里:</span><div class="progress-container calorie-progress"><div class="progress-bar" style="width: ${caloriesPercentage}%;">${userData.calories}</div></div></li>
+            <li><span class="title">🕘 运动时间:</span><div class="progress-container exercise-progress"><div class="progress-bar" style="width: ${exerciseTimePercentage}%;">${userData.exerciseTime}</div></div></li>
         </ul>
     `;
 }
+
+
 
 // 获取睡眠信息的HTML
 function getSleepInfoHTML(userData) {

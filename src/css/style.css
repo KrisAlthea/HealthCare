@@ -115,14 +115,16 @@ footer {
 }
 
 .card {
-    width: 300px;
+    max-width: 400px; /* 设置最大宽度，防止卡片过宽 */
+    min-width: 300px; /* 设置最小宽度，保持基本可读性 */
+    width: auto; /* 宽度根据内容自适应 */
     padding: 20px;
-    margin: 10px;
+    margin: 10px auto; /* 水平居中显示 */
     border-radius: 10px;
     border: 2px solid #ddd;
-    background-color: rgba(255, 255, 255, 0.7); /* 半透明背景 */
-    backdrop-filter: blur(10px); /* 模糊效果 */
-    -webkit-backdrop-filter: blur(10px); /* 针对旧版 Safari 浏览器 */
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -141,11 +143,53 @@ footer {
 .card ul {
     list-style: none;
     padding: 0;
+    margin: 0; /* 移除默认的外边距 */
 }
 
 .card ul li {
     margin-bottom: 8px;
     font-size: 14px;
+}
+
+.title {
+    display: inline-block;
+    width: 80px; /* 调整小标题的宽度 */
+    vertical-align: top; /* 与进度条对齐 */
+    white-space: nowrap; /* 防止换行 */
+}
+
+.progress-container {
+    display: inline-block;
+    width: 180px; /* 调整进度条的宽度 */
+    height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 10px; /* 添加间距 */
+}
+
+.progress-bar {
+    height: 100%;
+    transition: width 0.4s ease;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.step-progress .progress-bar {
+    background-color: #26c6da;
+
+}
+
+.calorie-progress .progress-bar {
+    background-color: #ff6f61;
+
+}
+
+.exercise-progress .progress-bar {
+    background-color: #ab47bc;
 }
 
 /* 我的健康目标和家庭健康动态的共通样式 */
