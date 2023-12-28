@@ -51,7 +51,7 @@ nav ul li a.active, nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* 根据您的页面调整这个高度 */
+    height: 80vh; /* 根据页面调整这个高度 */
 }
 
 .dot {
@@ -59,7 +59,7 @@ nav ul li a.active, nav ul li a:hover {
     height: 10px;
     width: 10px;
     margin: 0 5px;
-    background-color: #3498db; /* 您可以选择任何您喜欢的颜色 */
+    background-color: #3498db;
     border-radius: 50%;
     animation: jump 1.0s ease-in-out infinite;
 }

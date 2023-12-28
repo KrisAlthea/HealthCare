@@ -6,6 +6,7 @@ const config = {
     loginStateEndpoint: '/user/loginstate',
     logoutEndpoint: '/user/logout',
     fetchUserInfoEndpoint: '/user/current',
+    updateInfoEndpoint: '/user/updatehealthdata',
     adviceEndpoint: '/advice/get',
 
     /*
@@ -27,6 +28,9 @@ const config = {
     },
     get fetchUserInfoUrl() {
         return `${this.apiUrl}${this.fetchUserInfoEndpoint}`;
+    },
+    get updateInfoUrl() {
+        return `${this.apiUrl}${this.updateInfoEndpoint}`;
     },
     get adviceUrl() {
         return `${this.apiUrl}${this.adviceEndpoint}`;

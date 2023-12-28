@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CareU - 个人</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/personal.css">
 </head>
@@ -30,34 +31,32 @@
                 <button class="update-health-data-button">更新健康数据</button>
             </div>
         </div>
-        <!-- 更新健康数据弹出表单 -->
         <div class="update-health-data-form" style="display: none;">
             <form id="health-data-form">
                 <div class="form-content">
                     <!-- 基本信息部分 -->
                     <div class="form-section left">
                         <h3>基本信息</h3>
-                        <label>👣步数：<input type="number" name="steps"></label>
-                        <label>🔥卡路里：<input type="number" name="calories"></label>
-                        <label>🕘活动时间：<input type="number" name="activityTime"></label>
+                        <label>👣步数（步）<input type="number" name="steps" placeholder="例如: 5000"></label>
+                        <label>🔥卡路里（kcal）<input type="number" name="calories" placeholder="例如: 300"></label>
+                        <label>🕘运动时间（分钟）<input type="number" name="exerciseTime" placeholder="例如: 30"></label>
                     </div>
 
                     <!-- 睡眠部分 -->
                     <div class="form-section center">
                         <h3>睡眠</h3>
-                        <label>⏲️睡眠时长：<input type="text" name="sleepDuration"></label>
-                        <label>💤入睡时间：<input type="time" name="sleepTime"></label>
-                        <label>⏰醒来时间：<input type="time" name="wakeTime"></label>
+                        <label>⏲️睡眠时长（分钟）<input type="number" name="sleepDuration" placeholder="例如: 480"></label>
+                        <label>💤入睡时间<input type="time" name="sleepStartTime"></label>
+                        <label>⏰醒来时间<input type="time" name="sleepEndTime"></label>
                     </div>
 
                     <!-- 其他部分 -->
                     <div class="form-section right">
                         <h3>其他</h3>
-                        <label>💓心率：<input type="number" name="heartRate"></label>
-                        <label>🌡️血压：<input type="text" name="bloodPressure"></label>
-                        <label>📏血氧：<input type="number" name="bloodOxygen"></label>
+                        <label>💓心率（次/分钟）<input type="number" name="heartRate" placeholder="例如: 60"></label>
+                        <label>🌡️血压（mmHg）<input type="text" name="bloodPressure" placeholder="例如: 140/90"></label>
+                        <label>📏血氧（%）<input type="number" name="bloodOxygen" placeholder="例如: 98"></label>
                     </div>
-
                 </div>
 
                 <div class="form-actions">
@@ -66,6 +65,7 @@
                 </div>
             </form>
         </div>
+
         <!-- 右侧成就和健康记录 -->
         <div class="right-column">
             <div class="personal-achievements">

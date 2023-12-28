@@ -111,6 +111,3 @@ function formatTime(timeString) {
     let minutes = time.getMinutes().toString().padStart(2, '0');
     return `${hours}:${minutes}`;
 }
-
-// 执行函数
-displayUserData();
