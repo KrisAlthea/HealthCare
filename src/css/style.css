@@ -114,12 +114,21 @@ footer {
     display: none;
 }
 
+.card-row {
+    display: flex;
+    justify-content: space-around; /* 卡片间的空间均匀分布 */
+    align-items: flex-start; /* 卡片顶部对齐 */
+    margin-top: 20px;
+    padding: 10px;
+    flex-wrap: wrap; /* 允许卡片换行 */
+}
+
 .card {
     max-width: 400px; /* 设置最大宽度，防止卡片过宽 */
     min-width: 300px; /* 设置最小宽度，保持基本可读性 */
     width: auto; /* 宽度根据内容自适应 */
     padding: 20px;
-    margin: 10px auto; /* 水平居中显示 */
+    margin: 10px 20px; /* 水平居中显示 */
     border-radius: 10px;
     border: 2px solid #ddd;
     background-color: rgba(255, 255, 255, 0.7);
@@ -240,4 +249,10 @@ footer {
     float: right; /* 日期向右对齐 */
     color: #666; /* 日期文字颜色 */
     font-size: 0.9em; /* 日期字体大小 */
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 100%; /* 在更小的屏幕上，卡片宽度占满整个容器 */
+    }
 }

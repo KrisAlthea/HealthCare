@@ -1,5 +1,5 @@
 const config = {
-    apiUrl: 'http://localhost:8080/api',
+    apiUrl: 'https://careu.saikaisa.top/api',
     timeout: 5000,
     loginEndpoint: '/user/login',
     registerEndpoint: '/user/register',

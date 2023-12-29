@@ -21,75 +21,78 @@
     </header>
 
     <section>
+        <section class="card-row">
+            <div class="card health-data" id="basic-info">
+                <h2>基本信息</h2>
+                <ul>
+                    <li><span class="title">👣 步数:</span>
+                        <div class="progress-container step-progress">
+                            <div class="progress-bar"></div>
+                            <div class="progress-text"></div>
+                        </div>
+                    <li><span class="title">🔥 卡路里:</span>
+                        <div class="progress-container calorie-progress">
+                            <div class="progress-bar"></div>
+                            <div class="progress-text"></div>
+                        </div>
+                    <li><span class="title">🕘 运动时间:</span>
+                        <div class="progress-container exercise-progress">
+                            <div class="progress-bar"></div>
+                            <div class="progress-text"></div>
+                        </div>
+                </ul>
+            </div>
+
+
+            <div class="card health-data" id="sleep-info">
+                <h2>睡眠</h2>
+                <ul>
+                    <li>⏲️时长: 8小时</li>
+                    <li>💤入睡时间: 23:00</li>
+                    <li>⏰醒来时间: 07:00</li>
+                </ul>
+            </div>
+
+            <div class="card health-data" id="other-info">
+                <h2>其他</h2>
+                <ul>
+                    <li>💓心率: 75 bpm</li>
+                    <li>🌡️血压: 120/80 mmHg</li>
+                    <li>📏血氧: 98%</li>
+                </ul>
+            </div>
+        </section>
+
         <div id="loader" class="loader">
             <div class="dot"></div>
             <div class="dot"></div>
             <div class="dot"></div>
         </div>
 
-        <div class="card health-data" id="basic-info">
-            <h2>基本信息</h2>
-            <ul>
-                <li><span class="title">👣 步数:</span>
-                    <div class="progress-container step-progress">
-                        <div class="progress-bar"></div>
-                        <div class="progress-text"></div>
-                    </div>
-                <li><span class="title">🔥 卡路里:</span>
-                    <div class="progress-container calorie-progress">
-                        <div class="progress-bar"></div>
-                        <div class="progress-text"></div>
-                    </div>
-                <li><span class="title">🕘 运动时间:</span>
-                    <div class="progress-container exercise-progress">
-                        <div class="progress-bar"></div>
-                        <div class="progress-text"></div>
-                    </div>
-            </ul>
-        </div>
+        <section class="card-row">
+            <div class="card" id="health-goals">
+                <h2>我的健康目标</h2>
+                <ul>
+                    <li>步行目标: 今天要走满2km</li>
+                    <li>睡眠目标: 每晚23点前睡觉</li>
+                    <li>饮食目标: 减少垃圾食品，增加水果摄入</li>
+                    <li>锻炼目标: 每周至少做三次有氧运动</li>
+                    <li>减压目标: 每天至少进行30分钟放松活动</li>
+                </ul>
+            </div>
 
+            <div class="card" id="family-health-updates">
+                <h2>家庭健康动态</h2>
+                <ul>
+                    <li>妈妈：瑜伽课程帮助缓解工作压力 <span class="date-align">-- 12月22号周四</span></li>
+                    <li>我：开始每天早上跑步，已坚持一周 <span class="date-align">-- 12月20号周二</span></li>
+                    <li>爷爷：血压数值保持在正常范围内 <span class="date-align">-- 12月18号周日</span></li>
+                    <li>爸爸：成功减少烟酒消费，健康状况改善 <span class="date-align">-- 12月15号周四</span></li>
+                    <li>全家：定期进行健康体检，关注身体状况 <span class="date-align">-- 12月11号周四</span></li>
+                </ul>
 
-        <div class="card health-data" id="sleep-info">
-            <h2>睡眠</h2>
-            <ul>
-                <li>⏲️时长: 8小时</li>
-                <li>💤入睡时间: 23:00</li>
-                <li>⏰醒来时间: 07:00</li>
-            </ul>
-        </div>
-
-        <div class="card health-data" id="other-info">
-            <h2>其他</h2>
-            <ul>
-                <li>💓心率: 75 bpm</li>
-                <li>🌡️血压: 120/80 mmHg</li>
-                <li>📏血氧: 98%</li>
-            </ul>
-        </div>
-
-        <div class="card" id="health-goals">
-            <h2>我的健康目标</h2>
-            <ul>
-                <li>步行目标: 今天要走满2km</li>
-                <li>睡眠目标: 每晚23点前睡觉</li>
-                <li>饮食目标: 减少垃圾食品，增加水果摄入</li>
-                <li>锻炼目标: 每周至少做三次有氧运动</li>
-                <li>减压目标: 每天至少进行30分钟放松活动</li>
-            </ul>
-        </div>
-
-        <div class="card" id="family-health-updates">
-            <h2>家庭健康动态</h2>
-            <ul>
-                <li>妈妈：瑜伽课程帮助缓解工作压力 <span class="date-align">-- 12月22号周四</span></li>
-                <li>我：开始每天早上跑步，已坚持一周 <span class="date-align">-- 12月20号周二</span></li>
-                <li>爷爷：血压数值保持在正常范围内 <span class="date-align">-- 12月18号周日</span></li>
-                <li>爸爸：成功减少烟酒消费，健康状况改善 <span class="date-align">-- 12月15号周四</span></li>
-                <li>全家：定期进行健康体检，关注身体状况 <span class="date-align">-- 12月11号周四</span></li>
-            </ul>
-
-        </div>
-
+            </div>
+        </section>
     </section>
 
 </div>

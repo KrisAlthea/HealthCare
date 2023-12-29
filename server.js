@@ -5,7 +5,7 @@ const app = express();
 
 // 代理配置
 app.use('/api', createProxyMiddleware({
-    target: 'http://localhost:8080', // 后端服务器地址
+    target: 'http://localhost:8081', // 后端服务器地址
     changeOrigin: true,
 }));
 
