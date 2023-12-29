@@ -68,7 +68,6 @@ function hideLoadingAnimation() {
 
 // 获取基本信息的HTML
 function getBasicInfoHTML(userData) {
-    // 计算每个目标的完成百分比
     const stepsPercentage = Math.min((userData.steps / 10000) * 100, 100);
     const caloriesPercentage = Math.min((userData.calories / 600) * 100, 100);
     const exerciseTimePercentage = Math.min((userData.exerciseTime / 90) * 100, 100);
@@ -76,12 +75,31 @@ function getBasicInfoHTML(userData) {
     return `
         <h2>基本信息</h2>
         <ul>
-            <li><span class="title">👣 步数:</span><div class="progress-container step-progress"><div class="progress-bar" style="width: ${stepsPercentage}%;">${userData.steps}</div></div></li>
-            <li><span class="title">🔥 卡路里:</span><div class="progress-container calorie-progress"><div class="progress-bar" style="width: ${caloriesPercentage}%;">${userData.calories}</div></div></li>
-            <li><span class="title">🕘 运动时间:</span><div class="progress-container exercise-progress"><div class="progress-bar" style="width: ${exerciseTimePercentage}%;">${userData.exerciseTime}</div></div></li>
+            <li>
+                <span class="title">👣 步数:</span>
+                <div class="progress-container step-progress">
+                    <div class="progress-bar" style="width: ${stepsPercentage}%;"></div>
+                    <div class="progress-text">${userData.steps} / 10000 步</div>
+                </div>
+            </li>
+            <li>
+                <span class="title">🔥 卡路里:</span>
+                <div class="progress-container calorie-progress">
+                    <div class="progress-bar" style="width: ${caloriesPercentage}%;"></div>
+                    <div class="progress-text">${userData.calories} / 600 kcal</div>
+                </div>
+            </li>
+            <li>
+                <span class="title">🕘 运动时间:</span>
+                <div class="progress-container exercise-progress">
+                    <div class="progress-bar" style="width: ${exerciseTimePercentage}%;"></div>
+                    <div class="progress-text">${userData.exerciseTime} / 90 min</div>
+                </div>
+            </li>
         </ul>
     `;
 }
+
 
 
 
@@ -91,7 +109,7 @@ function getSleepInfoHTML(userData) {
     const sleepEndFormatted = formatTime(userData.sleepEndTime);
     return `
         <h2>睡眠</h2>
-        <ul>
+        <ul style="line-height: 24px">
             <li>⏲️时长: ${userData.sleepDuration} 分钟</li>
             <li>💤入睡时间: ${sleepStartFormatted}</li>
             <li>⏰醒来时间: ${sleepEndFormatted}</li>
@@ -103,7 +121,7 @@ function getSleepInfoHTML(userData) {
 function getOtherInfoHTML(userData) {
     return `
         <h2>其他</h2>
-        <ul>
+        <ul style="line-height: 24px">
             <li>💓心率: ${userData.heartRate} bpm</li>
             <li>🌡️血压: ${userData.bloodPressure} mmHg</li>
             <li>📏血氧: ${userData.bloodOxygen}%</li>

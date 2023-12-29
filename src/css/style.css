@@ -151,6 +151,10 @@ footer {
     font-size: 14px;
 }
 
+.health-data {
+    height: 150px; /* 设置高度，防止卡片过高 */
+}
+
 .title {
     display: inline-block;
     width: 80px; /* 调整小标题的宽度 */
@@ -159,38 +163,46 @@ footer {
 }
 
 .progress-container {
+    position: relative;
     display: inline-block;
-    width: 180px; /* 调整进度条的宽度 */
+    width: 180px;
     height: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
-    margin-left: 10px; /* 添加间距 */
+    margin-left: 10px;
 }
 
 .progress-bar {
     height: 100%;
     transition: width 0.4s ease;
-    color: white;
+}
+
+.progress-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    color: black; /* 根据需要调整颜色 */
 }
 
 .step-progress .progress-bar {
     background-color: #26c6da;
-
 }
 
 .calorie-progress .progress-bar {
     background-color: #ff6f61;
-
 }
 
 .exercise-progress .progress-bar {
     background-color: #ab47bc;
 }
+
 
 /* 我的健康目标和家庭健康动态的共通样式 */
 #family-health-updates, #health-goals {
